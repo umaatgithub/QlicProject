@@ -11,6 +11,8 @@ protected:
 
     QString Name;
 
+    QString Adress;
+
     QString PhoneNum;
 
     QString EmailAdd;
@@ -51,6 +53,10 @@ public:
     set<int> getBills() const;
 
     void setBills(const set<int> &value);
+
+    QString getAdress() const;
+
+    void setAdress(const QString &value);
 
 private:
 

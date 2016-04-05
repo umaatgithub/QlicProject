@@ -12,7 +12,7 @@ public:
 
 //Client Functions
 
-Client getClient(int);
+void getClient(int);
 
 bool createClient(Client);
 
@@ -28,7 +28,7 @@ QString getFeedback(int, int);
 
 //Bill Functions
 
-Bill getBill(int);
+void getBill(int);
 
 bool createBill(Bill);
 

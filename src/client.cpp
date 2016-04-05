@@ -66,6 +66,16 @@ void Client::setBills(const set<int> &value)
 bills = value;
 }
 
+QString Client::getAdress() const
+{
+    return Adress;
+}
+
+void Client::setAdress(const QString &value)
+{
+    Adress = value;
+}
+
 int Client::getIDClient() const
 {
     return IDClient;
