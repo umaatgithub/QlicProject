@@ -1,21 +1,58 @@
 #ifndef CLIENT_H
-#include <string>
-#include <vector>
+#include <set>
+#include <QString>
 #define CLIENT_H
 
 class Client{
 
-public:
+protected:
+
     int IDClient;
 
+    QString Name;
+
+    QString PhoneNum;
+
+    QString EmailAdd;
+
+    QString PassWord;
+
+    set <QString> Feedback;
+
+    set <int> bills;
+
+public:
+
+
+    int getIDClient() const;
+
+    void setName(const QString &value);
+
+    void setIDClient(int value);
+
+    QString getName() const;
+
+    QString getPhoneNum() const;
+
+    void setPhoneNum(const QString &value);
+
+    QString getEmailAdd() const;
+
+    void setEmailAdd(const QString &value);
+
+    QString getPassWord() const;
+
+    void setPassWord(const QString &value);
+
+    set<QString> getFeedback() const;
+
+    void setFeedback(const set<QString> &value);
+
+    set<int> getBills() const;
+
+    void setBills(const set<int> &value);
+
 private:
-    string Name;
-    string PhoneNum;
-    string EmailAdd;
-    string PassWord;
-    vector <string> Feedback;
-    vector <int> bills;
 
 };
 
-#endif // CLIENT_H
