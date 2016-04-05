@@ -67,15 +67,30 @@ map<int, Client> Client_Manager::getAllClient()
 
 void Client_Manager::getBill(int &value)
 {
-
+    // Select the bill according to IDBill
+    Bill.getIDBill();
+    Bill.getQuantityList("");
+    Bill.getPriceList("");
+    Bill.getBillDate("");
+    Bill.getTotalCost("");
+    Bill.getIdBuyer("");
 }
 
 bool Client_Manager::createBill()
 {
 
+    // Add a new "row" in the database
+    Bill.setIDBill();
+    Bill.setQuantityList("");
+    Bill.setPriceList("");
+    Bill.setBillDate("");
+    Bill.setTotalCost("");
+    Bill.setIdBuyer("");
+
 }
 
 map<int,Bill> Client_Manager::getAllBill()
 {
+	//Return all the memory from the bill database
 
 }
