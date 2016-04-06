@@ -1,82 +1,130 @@
 #include "client.h"
+#include <set>
 
-
-void Client::setName(const QString &value)
+Client::Client()
 {
-    Name = value;
+    clientId = QString("");
+    name = QString("");
+    address = QString("");
+    phoneNum = QString("");
+    password = QString("");
 }
 
-void Client::setIDClient(int value)
+Client::~Client()
 {
-IDClient = value;
+
+}
+
+bool Client::isValid()
+{
+    return true;
+}
+
+std::set<std::pair<QString, QString> > Client::toSet()
+{
+    std::set<std::pair<QString,QString>> clientSet;
+    std::pair<QString,QString> valuePair;
+
+    valuePair.first = "ID";
+    valuePair.second = client.getClientId();
+    clientSet.insert(0,valuePair);
+
+    valuePair.first = "NAME";
+    valuePair.second = client.getName();
+    clientSet.insert(1,valuePair);
+
+    valuePair.first = "ADDRESS";
+    valuePair.second = client.getAddress();
+    clientSet.insert(2,valuePair);
+
+    valuePair.first = "PASSWORD";
+    valuePair.second = client.getPassword();
+    clientSet.insert(3,valuePair);
+
+    valuePair.second = "BILL_ID";
+    std::set<QString> billIds = client.getBillId();
+
+    bool firstFlag = true;
+    QString value = "";
+    for(std::set<QString>::iterator it = billIds.begin(); it != billIds.end(); it++){
+        if(true == firstFlag){
+            value = value.append(*it);
+            firstFlag = false;
+            continue;
+        }
+        value = value.append("," + (*it));
+        it++;
+    }
+    valuePair.second = value;
+    clientSet.insert(4,valuePair);
+}
+
+QString Client::getClientId() const
+{
+    return clientId;
+}
+
+void Client::setClientId(const QString &value)
+{
+    clientId = value;
 }
 
 QString Client::getName() const
 {
-return Name;
+    return name;
+}
+
+void Client::setName(const QString &value)
+{
+    name = value;
+}
+
+QString Client::getAddress() const
+{
+    return address;
+}
+
+void Client::setAddress(const QString &value)
+{
+    address = value;
 }
 
 QString Client::getPhoneNum() const
 {
-return PhoneNum;
+    return phoneNum;
 }
 
 void Client::setPhoneNum(const QString &value)
 {
-PhoneNum = value;
+    phoneNum = value;
 }
 
-QString Client::getEmailAdd() const
+QString Client::getEmailAddress() const
 {
-return EmailAdd;
+    return emailAddress;
 }
 
-void Client::setEmailAdd(const QString &value)
+void Client::setEmailAddress(const QString &value)
 {
-EmailAdd = value;
+    emailAddress = value;
 }
 
-QString Client::getPassWord() const
+QString Client::getPassword() const
 {
-return PassWord;
+    return password;
 }
 
-void Client::setPassWord(const QString &value)
+void Client::setPassword(const QString &value)
 {
-PassWord = value;
+    password = value;
 }
 
-set<QString> Client::getFeedback() const
+std::set<QString> Client::getBillId() const
 {
-return Feedback;
+    return billId;
 }
 
-void Client::setFeedback(const set<QString> &value)
+void Client::setBillId(const std::set<QString> &value)
 {
-Feedback = value;
-}
-
-set<int> Client::getBills() const
-{
-return bills;
-}
-
-void Client::setBills(const set<int> &value)
-{
-bills = value;
-}
-
-QString Client::getAdress() const
-{
-    return Adress;
-}
-
-void Client::setAdress(const QString &value)
-{
-    Adress = value;
-}
-
-int Client::getIDClient() const
-{
-    return IDClient;
+    billId = value;
 }

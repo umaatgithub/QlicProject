@@ -1,64 +1,39 @@
 #ifndef CLIENT_H
+#define CLIENT_H
 #include <set>
 #include <QString>
-#define CLIENT_H
 
 class Client{
 
 protected:
-
-    int IDClient;
-
-    QString Name;
-
-    QString Adress;
-
-    QString PhoneNum;
-
-    QString EmailAdd;
-
-    QString PassWord;
-
-    set <QString> Feedback;
-
-    set <int> bills;
+    QString clientId;
+    QString name;
+    QString address;
+    QString phoneNum;
+    QString emailAddress;
+    QString password;
+    std::set<QString> billId;
 
 public:
+    Client();
+    ~Client();
 
+    bool isValid();
+    std::set<std::pair<QString,QString>> toSet();
 
-    int getIDClient() const;
-
-    void setName(const QString &value);
-
-    void setIDClient(int value);
-
+    QString getClientId() const;
+    void setClientId(const QString &value);
     QString getName() const;
-
+    void setName(const QString &value);
+    QString getAddress() const;
+    void setAddress(const QString &value);
     QString getPhoneNum() const;
-
     void setPhoneNum(const QString &value);
-
-    QString getEmailAdd() const;
-
-    void setEmailAdd(const QString &value);
-
-    QString getPassWord() const;
-
-    void setPassWord(const QString &value);
-
-    set<QString> getFeedback() const;
-
-    void setFeedback(const set<QString> &value);
-
-    set<int> getBills() const;
-
-    void setBills(const set<int> &value);
-
-    QString getAdress() const;
-
-    void setAdress(const QString &value);
-
-private:
-
+    QString getEmailAddress() const;
+    void setEmailAddress(const QString &value);
+    QString getPassword() const;
+    void setPassword(const QString &value);
+    std::set<QString> getBillId() const;
+    void setBillId(const std::set<QString> &value);
 };
 
